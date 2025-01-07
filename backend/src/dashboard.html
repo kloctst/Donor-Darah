@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- <link rel="stylesheet" href="/style.css"> Link to optional CSS -->
+</head>
+<body>
+    <h1>Dashboard</h1>
+
+    <!-- Didonor Table -->
+    <h2>Table</h2>
+    <table id="didonorTable" border="1">
+        <thead>
+            <tr>
+                <th>ID 
+                    <button onclick="sortTable('didonorTable', 0, true, true)">▲</button>
+                    <button onclick="sortTable('didonorTable', 0, true, false)">▼</button>
+                </th>
+                <th>Nama</th>
+                <th>BloodType</th>
+                <th>UserType 
+                    <button onclick="sortTable('didonorTable', 4, false, true)">▲</button>
+                    <button onclick="sortTable('didonorTable', 4, false, false)">▼</button>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="didonorBody">
+            <!-- Dynamic rows will be added here by JavaScript -->
+        </tbody>
+    </table>
+
+    <!-- Back to Login Button -->
+    <form action="/login" method="GET">
+        <button type="submit">Back to Login</button>
+    </form>
+
+    <!-- Include the external JavaScript -->
+    <script src="/js/dashboard.js"></script>
+    <script>
+        // Fetch Didonor data from the server
+        async function fetchData() {
+            try {
+                // Fetch Didonor data
+                const didonorResponse = await fetch('/api/didonor');
+                const didonorData = await didonorResponse.json();
+                populateTable('didonorBody', didonorData);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+
+        // Populate table dynamically
+        function populateTable(tableId, data) {
+            const tableBody = document.getElementById(tableId);
+            tableBody.innerHTML = ''; // Clear existing content
+        
+            data.forEach(item => {
+                let row = `
+                    <tr>
+                        <td>${item.UserID}</td>
+                        <td>
+                            ${item.UserType === 'Recipient' 
+                                ? `<a href="#" onclick="openDonationOptions(${item.UserID})">${item.FullName}</a>` 
+                                : `${item.FullName}`}
+                        </td>
+                        <td>${item.BloodType}</td>
+                        <td>${item.UserType}</td>
+                    </tr>`;
+                tableBody.insertAdjacentHTML('beforeend', row);
+            });
+        }
+
+        // Function to open donation options
+        function openDonationOptions(userID) {
+            const donationType = prompt("Enter 1 to donate money, or 2 to donate blood:");
+
+            if (donationType === '1') {
+                openMoneyDonationForm(userID);
+            } else if (donationType === '2') {
+                openBloodDonationForm(userID);
+            } else {
+                alert("Invalid option. Please enter 1 or 2.");
+            }
+        }
+
+        // Function to handle money donation form
+        function openMoneyDonationForm(userID) {
+            const amount = prompt("Enter the amount of money you want to donate:");
+            const message = prompt("Enter your donation message:");
+        
+            if (amount && message) {
+                donateMoney(userID, amount, message);
+            } else {
+                alert("Please fill in all fields.");
+            }
+        }
+
+        // Send money donation data to the server
+        async function donateMoney(userID, amount, message) {
+            try {
+                const response = await fetch('/api/donate-money', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ UserID: userID, Amount: amount, Message: message }),
+                });
+        
+                if (!response.ok) {
+                    const error = await response.text();
+                    throw new Error(`Server responded with error: ${error}`);
+                }
+        
+                alert("Money donation successful!");
+                fetchData();
+            } catch (error) {
+                alert(`Failed to donate money: ${error.message}`);
+            }
+        }
+
+        // Function to handle blood donation form
+        function openBloodDonationForm(userID) {
+            const location = prompt("Enter the blood donation location:");
+        
+            if (location) {
+                donateBlood(userID, location);
+            } else {
+                alert("Please fill in the location field.");
+            }
+        }
+
+        // Send blood donation data to the server
+        async function donateBlood(DonorID, Location) {
+            const RecipientID = prompt("Enter the Recipient ID for the blood donation:");
+            
+            if (!RecipientID) {
+                alert("Please provide a valid Recipient ID.");
+                return;
+            }
+        
+            try {
+                const response = await fetch('/api/donate-blood', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ DonorID, Location, RecipientID }),
+                });
+        
+                if (!response.ok) {
+                    const error = await response.text();
+                    throw new Error(`Server responded with error: ${error}`);
+                }
+        
+                alert("Blood donation successful!");
+                fetchData();
+            } catch (error) {
+                alert(`Failed to donate blood: ${error.message}`);
+            }
+        }
+        // Call fetchData when the page loads
+        fetchData();
+        
+    </script>
+</body>
+</html>
