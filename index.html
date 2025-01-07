@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate Blood - Save Life</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img style="width: 20px; height: 20px; position: relative; top: 17px; left: 15px;" src="../assets/blood-drop.png" />
+                <p class="ber">BerBlood</p>
+            </div>
+            <ul>
+                <li><a href="#home-dashbourd" class="nav-bar">Home</a></li>
+                <li><a href="#donation-process" class="nav-bar">About</a></li>
+                <li><a href="#campaigns" class="nav-bar">Campaign</a></li>
+                <li><a href="#news" class="nav-bar">Blog</a></li>
+                <li><a href="#footer" class="nav-bar">Contact</a></li>
+                <li><a href="login.html" class="nav-bar">Log out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="hero fade-in" id="home-dashbourd">
+            <div class="text-content">
+                <h1 id="typing-text">Donate blood, <br>Save life</h1>
+                <p style="width: 400px;">
+                    An award-winning digital agency based in London. 
+                    We design and build beautiful differences.
+                </p>
+                
+                <a href="donate-now.html" target="_blank" class="donate-now">Donate Now</a>
+                <button class="view-data" id="viewDataBtn">View Data</button>
+
+                <!-- Pop-up -->
+                <div class="overlay" id="overlay"></div>
+                <div class="popup" id="popup">
+                    <button class="close-btn" id="closePopup">Close</button>
+                    <h2>Donation Data</h2>
+
+                    <!-- Search Bar -->
+                    <input type="text" id="searchBloodType" placeholder="Search by Blood Type (e.g., A, B, AB, O)">
+
+                    <!-- Table -->
+                    <table>
+                    <thead>
+                        <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Blood Type</th>
+                        <th>User Type</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dataTable">
+                        <!-- Data akan ditambahkan oleh JavaScript -->
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+    
+            <div class="image-content">
+                <div class="circle-image">
+                    <img id="carousel-image" src="../assets/donor.jpg" alt="Blood Donation">
+                </div>
+            </div>
+        </section>
+    </main>    
+
+    <!-- Donation Process -->
+    <br />
+    <section class="donation-process fade-in" id="donation-process"> 
+        <h2 class="p-donate">Donation process</h2>
+        <p class="p-award">An award-winning digital agency based in London. We design and build beautiful digital products that make a difference.</p>
+        <div class="process-steps">
+            <div class="step">
+                <img class="step-icon step1" src="../assets/number-1 (1).png" />
+                <h3>Registration</h3>
+                <p>Get registered for your blood donation process.</p>
+            </div>
+            <div class="step">
+                <img class="step-icon step2" src="../assets/number-2.png" />
+                <h3>Screening</h3>
+                <p>Health and safety screening before donating blood.</p>
+            </div>
+            <div class="step">
+                <img class="step-icon step3" src="../assets/number-3.png" />
+                <h3>Donation</h3>
+                <p>The actual blood donation process, quick and safe.</p>
+            </div>
+            <div class="step">
+                <img class="step-icon step4" src="../assets/number-4.png" />
+                <h3>Refreshment</h3>
+                <p>Enjoy refreshments after donating and feel proud!</p>
+            </div>
+        </div>
+    </section>
+    <br />
+    <br />
+
+    <!-- Campaigns -->
+    <section class="campaigns fade-in" id="campaigns">
+        <div class="campaigns-header">
+            <h2 class="our" style="text-align: center;">Our campaigns</h2>
+            <p class="p-our">Encourage new donors to blood. We have total donor centers and visit
+                thousands of other venues on various occasions.</p>
+            <a href="#" class="see-all">See all &rarr;</a>
+        </div>
+        <div class="campaign-cards">
+            <div class="card">
+                <img src="../assets/donor-2.jpg" alt="World blood donors day">
+                <div class="card-content">
+                    <span class="date">14 JUNE, 2024</span>
+                    <h3>World blood donors day</h3>
+                    <p>Encouraging worldwide blood donations.</p>
+                    <span class="location">📍 Buntok, Kalimantan Tengah</span>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../assets/donor-3.jpg" alt="Donation feel real peace">
+                <div class="card-content">
+                    <span class="date">17 JUNE, 2024</span>
+                    <h3>Donation feel real peace</h3>
+                    <p>Peaceful and life-saving blood donation events.</p>
+                    <span class="location">📍 Menteng Atas, DKI Jakarta</span>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../assets/donor-4.jpg" alt="O+ve blood donors needed">
+                <div class="card-content">
+                    <span class="date">24 JUNE, 2024</span>
+                    <h3>O+ve blood donors needed</h3>
+                    <p>Urgent need for O+ blood group donors.</p>
+                    <span class="location">📍 Bogor, Jawa Barat</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <!-- Appointment Form Section -->
+    <div class="container fade-in" id="container">
+        <div class="left-section">
+            <h4>Appointment</h4>
+            <h1>Good to know<br>helpful information</h1>
+            <div class="info-list">
+                <div class="info-item">
+                    <span class="icon">➡️</span>
+                    <p><strong>Maintain a healthy iron level by eating iron-rich foods.</strong></p>
+                </div>
+                <div class="info-item">
+                    <span class="icon">➡️</span>
+                    <p>Drink an extra 16 oz. of water prior to your donation.</p>
+                </div>
+                <div class="info-item">
+                    <span class="icon">➡️</span>
+                    <p>Avoid alcohol consumption before your blood donation.</p>
+                </div>
+                <div class="info-item">
+                    <span class="icon">➡️</span>
+                    <p>Finally, try to get a good night's sleep after donation.</p>
+                </div>
+                <div class="info-item">
+                    <span class="icon">➡️</span>
+                    <p><strong>Remember to bring the donor card or national ID/Passport.</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Phone" required>
+                <div class="time-date">
+                    <input type="text" placeholder="Time" required>
+                    <input type="date" required>
+                </div>
+                <button class="tombol" type="submit">
+                    Appointment Submit 
+                    <span class="arrow-icon">➡️</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Latest New -->
+    <section class="campaigns fade-in" id="news">
+        <div class="campaigns-header">
+            <h2 class="our" style="text-align: center;">Latest New</h2>
+            <p class="p-our">Encourage new donors toblood. We have total donor centers and visit
+                thousands of other venues on various occasions</p>
+            <a href="#" class="see-all">See all &rarr;</a>
+        </div>
+        <div class="campaign-cards">
+            <div class="card">
+                <img src="../assets/donor-news-2.webp" alt="World blood donors day">
+                <div class="card-content">
+                    <span class="date">14 JUNE, 2024</span>
+                    <h3>World blood donors day</h3>
+                    <p>An award-winning agency-based product makes a difference</p>
+                    <span class="location">📍 Talio, Kalimantan Selatan</span>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../assets/donor-news-3.jpeg" alt="Donation feel real peace">
+                <div class="card-content">
+                    <span class="date">17 JUNE, 2024</span>
+                    <h3>Blood Donation Event 2</h3>
+                    <p>Join us for another impactful blood donation event in your area</p>
+                    <span class="location">📍 Sendawar, Kalimantan Timur</span>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../assets/donor-news.jpg" alt="O+ve blood donors needed">
+                <div class="card-content">
+                    <span class="date">24 JUNE, 2024</span>
+                    <h3>Community Blood Donation</h3>
+                    <p>Help save lives by donating blood and supporting the community</p>
+                    <span class="location">📍 Depok, Jawa Barat</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <!-- Footer Section -->
+    <footer class="footer fade-in" id="footer">
+        <div class="footer-container">
+            <!-- About Us -->
+            <div class="footer-section about-us">
+                <h3 style="color: white;">About us</h3>
+                <p>
+                    An award winning agency based in London.difference. An award winning agency based in
+                </p>
+                <div class="social-icons">
+                    <a href="#"><img width="50px" src="../assets/web (1).png" /></a>
+                    <a href="#"><img width="50px" src="../assets/twitter (2).png" /></a>
+                    <a href="#"><img width="50px" src="../assets/instagram.png" /></a>
+                </div>
+            </div>
+
+
+            <!-- Links -->
+            <div class="footer-section links">
+                <h3 style="color: whitesmoke;" class="p-links">Links</h3>
+                <ul>
+                    <li class="ul-home"><a href="home.html">Home</a></li>
+                    <li class="ul-about"><a href="#">About</a></li>
+                    <li class="ul-services"><a href="#">Services</a></li>
+                    <li class="ul-blog"><a href="#">Blog</a></li>
+                    <li class="ul-contact"><a href="mailto:killyoctama@gmail.com">Contact</a></li>
+                    <li class="ul-event"><a href="#">Event</a></li>
+                    <li class="ul-appointment"><a href="#">Appointment</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="footer-section contact">
+                <h3 style="color: whitesmoke;">Contact</h3>
+                <a class="ber-email" href="mailto:killyoctama@gmail.com">BerBlood@gmail.com</a>
+                <a class="beru-email" href="mailto:easy04517@gmail.com">Beru@gmail.com</a>
+                <h4 class="p-phone" style="color: whitesmoke;">Phone</h4>
+                <a href="https://wa.me/+6285348946448" class="killy">+62 853-4894-6448</a>
+                <a class="andy" href="https://wa.me/+6281212187759">+62 812-1218-7759</a>
+            </div>
+
+            <!-- Subscribe -->
+            <div class="footer-section subscribe">
+                <h3 style="color: whitesmoke">Subscribe now</h3>
+                <p>
+                    An award winning agency based in London. Wedesign beautiful products make a difference
+                </p>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">→</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>Copyright © 2020, All Right Reserved - by Tokyo Manjiber</p>
+        </div>
+    </footer>
+
+    <script src="/js/dashboard.js"></script>
+    <script>
+        // Fetch Didonor data from the server
+        async function fetchData() {
+            try {
+                // Fetch Didonor data
+                const didonorResponse = await fetch('/api/didonor');
+                const didonorData = await didonorResponse.json();
+                populateTable('didonorBody', didonorData);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+
+        // Populate table dynamically
+        function populateTable(tableId, data) {
+            const tableBody = document.getElementById(tableId);
+            tableBody.innerHTML = ''; // Clear existing content
+        
+            data.forEach(item => {
+                let row = `
+                    <tr>
+                        <td>${item.UserID}</td>
+                        <td>
+                            ${item.UserType === 'Recipient' 
+                                ? `<a href="#" onclick="openDonationOptions(${item.UserID})">${item.FullName}</a>` 
+                                : `${item.FullName}`}
+                        </td>
+                        <td>${item.BloodType}</td>
+                        <td>${item.UserType}</td>
+                    </tr>`;
+                tableBody.insertAdjacentHTML('beforeend', row);
+            });
+        }
+
+        // Function to open donation options
+        function openDonationOptions(userID) {
+            const donationType = prompt("Enter 1 to donate money, or 2 to donate blood:");
+
+            if (donationType === '1') {
+                openMoneyDonationForm(userID);
+            } else if (donationType === '2') {
+                openBloodDonationForm(userID);
+            } else {
+                alert("Invalid option. Please enter 1 or 2.");
+            }
+        }
+
+        // Function to handle money donation form
+        function openMoneyDonationForm(userID) {
+            const amount = prompt("Enter the amount of money you want to donate:");
+            const message = prompt("Enter your donation message:");
+        
+            if (amount && message) {
+                donateMoney(userID, amount, message);
+            } else {
+                alert("Please fill in all fields.");
+            }
+        }
+
+        // Send money donation data to the server
+        async function donateMoney(userID, amount, message) {
+            try {
+                const response = await fetch('/api/donate-money', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ UserID: userID, Amount: amount, Message: message }),
+                });
+        
+                if (!response.ok) {
+                    const error = await response.text();
+                    throw new Error(`Server responded with error: ${error}`);
+                }
+        
+                alert("Money donation successful!");
+                fetchData();
+            } catch (error) {
+                alert(`Failed to donate money: ${error.message}`);
+            }
+        }
+
+        // Function to handle blood donation form
+        function openBloodDonationForm(userID) {
+            const location = prompt("Enter the blood donation location:");
+        
+            if (location) {
+                donateBlood(userID, location);
+            } else {
+                alert("Please fill in the location field.");
+            }
+        }
+
+        // Send blood donation data to the server
+        async function donateBlood(DonorID, Location) {
+            const RecipientID = prompt("Enter the Recipient ID for the blood donation:");
+            
+            if (!RecipientID) {
+                alert("Please provide a valid Recipient ID.");
+                return;
+            }
+        
+            try {
+                const response = await fetch('/api/donate-blood', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ DonorID, Location, RecipientID }),
+                });
+        
+                if (!response.ok) {
+                    const error = await response.text();
+                    throw new Error(`Server responded with error: ${error}`);
+                }
+        
+                alert("Blood donation successful!");
+                fetchData();
+            } catch (error) {
+                alert(`Failed to donate blood: ${error.message}`);
+            }
+        }
+        // Call fetchData when the page loads
+        fetchData();
+        
+    </script>
+    
+    <script src="../js/scroll.js"></script>
+    <script src="../js/gambar.js"></script>
+    <script src="../js/text.js"></script>
+    <script src="../js/klik.js"></script>
+    <script src="../js/donate.js"></script>
+    <script src="../js/view-data.js"></script>
+</body>
+</html>

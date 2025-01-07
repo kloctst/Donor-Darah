@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/login.css">
+        <title>Donate</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="box form-box">
+                <header>Donate Type</header>
+                <!-- Donate Type Selection -->
+                <div id="donate-type-selection">
+                    <p>Please select your donate type:</p>
+                    <button class="btn" onclick="showLoginForm('money')">Money</button>
+                    <button class="btn" onclick="showLoginForm('donor')">Donor</button>
+                </div>
+
+                <!-- Donate Money Form -->
+                <form id="money-login" action="/money-donation.html" method="POST" style="display: none;">
+                    <header>Money</header>
+                    <div class="field input">
+                        <label for="amount">Donation Amount:</label>
+                        <input type="number" id="amount" name="amount" class="amount" required>
+                    </div>
+                    <div class="field input">
+                        <label for="message">Message:</label>
+                        <input type="text" id="message" name="message" class="message" required>
+                    </div>
+                    <div class="field">
+                        <input type="submit" class="btn" value="Donate Now">
+                    </div>
+                    <div class="links">
+                        <a href="index.html">Back To Home</a>
+                    </div>
+                </form>
+
+                <!-- Donor Registration Form -->
+                <form id="donor-login" action="/donor-registration.html" method="POST" style="display: none;">
+                    <header>Blood</header>
+                    <div class="field input">
+                        <label for="donor-username">Location:</label>
+                        <input type="text" id="locate" name="locate" class="locate" required>
+                    </div>
+                    <div class="field input">
+                        <label for="donor-recepient-id">Recepient-Id:</label>
+                        <input type="recepient-id" id="recepient-id" name="recepient-id" class="recepient-id" required>
+                    </div>
+                    <div class="field">
+                        <input type="submit" class="btn" value="Register as Donor">
+                    </div>
+                    <div class="links">
+                        <a href="index.html">Back To Home</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Script to Handle Form Display -->
+        <script>
+            function showLoginForm(type) {
+                // Hide all forms
+                document.getElementById('money-login').style.display = 'none';
+                document.getElementById('donor-login').style.display = 'none';
+                document.getElementById('donate-type-selection').style.display = 'none';
+
+                // Show the selected form
+                if (type === 'money') {
+                    document.getElementById('money-login').style.display = 'block';
+                } else if (type === 'donor') {
+                    document.getElementById('donor-login').style.display = 'block';
+                }
+            }
+        </script>
+    </body>
+</html>

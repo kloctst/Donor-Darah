@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Comatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/registeration.css">
+        <title>Registeration_Page</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="box form-box">
+                <header>Register</header>
+                <form action="/register" method="post">
+
+                    <div class="field input">
+                        <label for="FullName">FullName:</label><br>
+                        <input type="text" id="FullName" name="FullName" required>
+                    </div>
+
+                    <div class="field input">
+                      <label for="Email">Email:</label>
+                      <input type="email" id="Email" class="Email" autocomplete="off" required>
+                    </div>
+
+                    <div class="field input">
+                      <label for="Password">Password:</label>
+                      <input type="password" id="Password" class="Password" autocomplete="off" required>
+                    </div>
+
+                    <div class="field input">
+                        <label for="phone">Phone:</label>
+                        <input type="number" id="Phone" class="Phone" autocomplete="off" required>
+                    </div>
+
+                    <div class="field input">
+                        <label for="BloodType">Blood Type:</label>
+                        <select id="BloodType" class="blood-type" required>
+                            <option value="">Select Blood Type</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="AB">AB</option>
+                            <option value="O">O</option>
+                        </select>
+                    </div>
+
+                    <div class="field input">
+                        <label for="UserType">User Type:</label>
+                        <select id="UserType" class="user-type" required>
+                            <option value="">Select User Type</option>
+                            <option value="Donor">Donor</option>
+                            <option value="Recipient">Recipient</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <input type="submit" class="btn" value="Register">
+                    </div>
+
+                    <div class="links">
+                        Already a Member? <a href="login.html">Sign in Now</a>
+                    </div>
+
+                </form> 
+            </div>
+        </div>
+    </body>
+</html>
